@@ -5,7 +5,7 @@ from pymongo import MongoClient
 from datetime import datetime
 
 app = Flask(__name__)
-api = Api(app, version='1.0', title='Event API', description='API for managing events')
+api = Api(app, version='1.0', title='DATA AXLE ASSIGNMENT', description='API for managing events')
 
 # Configure Flask-Mail
 app.config['MAIL_SERVER'] = 'smtp.example.com'  # Update with your email provider's SMTP server
@@ -25,7 +25,7 @@ event_model = api.model('Event', {
 def send_email_wishes(events, mail, subject):
     try:
         subject = subject
-        recipient = "dandekarakshay51@gmail.com"  # Replace with the recipient's email address
+        recipient = "dandekarakshay51@gmail.com"
 
         msg = Message(subject=subject, recipients=[recipient])
         msg.body = "\n".join([f"Event: {event['event_name']}, Date: {event['event_date']}" for event in events])
